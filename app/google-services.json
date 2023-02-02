@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "968737240559",
+    "project_id": "test-wv-app-d71ef",
+    "storage_bucket": "test-wv-app-d71ef.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:968737240559:android:753f5b0004ca04092af21a",
+        "android_client_info": {
+          "package_name": "com.ganin.testwvapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "968737240559-reuovi5g2pkhcif3ofg340a0qlafhbun.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPoGvnXzL0_uh8uA8TS5oPl-qSvnLHlmI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "968737240559-reuovi5g2pkhcif3ofg340a0qlafhbun.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
