@@ -1,4 +1,43 @@
 <resources>
     <string name="app_name">Test WV App</string>
     <string name="network_access">Network access is required for the application to work</string>
+    <string name="action_settings">Settings</string>
+    <string name="home_fragment_label">Home</string>
+    <string name="chronometer_fragment_label">Chronometer</string>
+
+    <!-- Home Fragment -->
+    <string name="there_is_no_workout">There is no workouts.</string>
+    <string name="new_button">New</string>
+    <string name="status_finished">Finished</string>
+    <string name="delete">Delete</string>
+    <string name="status_cancelled">Cancelled</string>
+    <string name="date">Date</string>
+    <string name="training">Training</string>
+    <string name="status">Status</string>
+    <string name="confirm_delete">Are you sure you want delete this register?</string>
+
+    <!-- Chronometer Fragment -->
+    <string name="start">Start</string>
+    <string name="back">Back</string>
+    <string name="cancel">Cancel</string>
+    <string name="sets">Sets</string>
+    <string name="run">Run</string>
+    <string name="walk">Walk</string>
+    <string name="finished">Finished!</string>
+    <string name="warm_up">Warm Up</string>
+    <string name="time">Time</string>
+    <string name="distance">Distance</string>
+    <string name="confirm_cancel">Are you sure you want to cancel?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="current_sets">Current Set</string>
+
+    <string name="seconds">Sec</string>
+    <string name="minutes">Min</string>
+
+    <!-- Settings Fragment -->
+    <string name="warm_up_time">Warm Up Time (min):</string>
+    <string name="settings_fragment_label">Settings Fragment</string>
+    <string name="save">Save</string>
+    <string name="settings_saved">Settings Saved!</string>
 </resources>

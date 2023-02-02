@@ -3,7 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Documents/TestWVApp/app/src/main/res/drawable/circle_button.xml" value="0.1" />
+        <entry key="..\:/Documents/TestWVApp/app/src/main/res/drawable/ic_status_cancelled.xml" value="0.1" />
+        <entry key="..\:/Documents/TestWVApp/app/src/main/res/drawable/ic_status_finished.xml" value="0.1" />
         <entry key="..\:/Documents/TestWVApp/app/src/main/res/layout/activity_main.xml" value="0.259375" />
+        <entry key="..\:/Documents/TestWVApp/app/src/main/res/layout/activity_start.xml" value="0.259375" />
+        <entry key="..\:/Documents/TestWVApp/app/src/main/res/layout/content_main.xml" value="0.259375" />
+        <entry key="..\:/Documents/TestWVApp/app/src/main/res/layout/fragment_chronometer.xml" value="0.259375" />
+        <entry key="..\:/Documents/TestWVApp/app/src/main/res/layout/fragment_settings.xml" value="0.259375" />
+        <entry key="..\:/Documents/TestWVApp/app/src/main/res/layout/list_item_week.xml" value="0.259375" />
+        <entry key="..\:/Documents/TestWVApp/app/src/main/res/layout/list_item_workout.xml" value="0.259375" />
       </map>
     </option>
   </component>
