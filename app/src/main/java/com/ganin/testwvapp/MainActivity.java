@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -19,6 +20,7 @@ import android.webkit.WebViewClient;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.ganin.testwvapp.view.StartActivity;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings;
 
@@ -31,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private WebView webView;
     private TextView textView;
     private SharedPreferences mSettings;
-    private String url = "";
+    private String url;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         mSettings = getSharedPreferences(PREF, MODE_PRIVATE);
         url = mSettings.getString(URL, "");
 
-        if (url.equals("")) {
+        if (url.isEmpty()) {
             FirebaseRemoteConfig mFirebaseRemoteConfig = FirebaseRemoteConfig.getInstance();
             FirebaseRemoteConfigSettings configSettings = new FirebaseRemoteConfigSettings.Builder()
                     .setMinimumFetchIntervalInSeconds(3600)
@@ -57,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
                             url = mFirebaseRemoteConfig.getString(URL);
 
                             if (url.isEmpty() || checkIsEmu()) {
-                                // Добавить заглушку
+                                startActivity(new Intent(this, StartActivity.class));
                                 return;
                             }
 

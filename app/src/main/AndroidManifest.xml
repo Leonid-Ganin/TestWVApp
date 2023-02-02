@@ -14,12 +14,18 @@
             android:name=".MainActivity"
             android:launchMode="singleInstance"
             android:alwaysRetainTaskState="true"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:theme="@style/Theme.Ganin.NoActionBar"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.StartActivity"
+            android:theme="@style/Theme.Ganin.NoActionBar"
+            android:screenOrientation="portrait"
+            android:exported="true">
         </activity>
     </application>
 
