@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Test WV App</string>
+    <string name="network_access">Network access is required for the application to work</string>
 </resources>

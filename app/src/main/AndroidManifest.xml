@@ -4,13 +4,16 @@
     package="com.ganin.testwvapp">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:icon="@mipmap/ic_launcher"
+        android:usesCleartextTraffic="true"
         android:label="@string/app_name">
         <activity
             android:name=".MainActivity"
-            android:usesCleartextTraffic="true"
+            android:launchMode="singleInstance"
+            android:alwaysRetainTaskState="true"
             android:theme="@style/Theme.AppCompat.NoActionBar"
             android:exported="true">
             <intent-filter>
