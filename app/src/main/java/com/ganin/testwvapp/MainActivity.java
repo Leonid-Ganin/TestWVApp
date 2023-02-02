@@ -6,6 +6,11 @@ import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
+import android.webkit.CookieManager;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Toast;
 
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
@@ -17,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String PREF = "settings";
     public static final String URL = "url";
 
+    private WebView webView;
     private String url = "";
     private SharedPreferences mSettings;
 
@@ -28,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         String buildHardware = Build.HARDWARE;
         String brand = Build.BRAND;
 
-        boolean result = (Build.FINGERPRINT.startsWith("generic")
+        return (Build.FINGERPRINT.startsWith("generic")
                 || phoneModel.contains("google_sdk")
                 || phoneModel.toLowerCase(Locale.getDefault()).contains("droid4x")
                 || phoneModel.contains("Emulator")
@@ -44,11 +50,32 @@ public class MainActivity extends AppCompatActivity {
                 || Build.BOARD.toLowerCase(Locale.getDefault()).contains("nox")
                 || Build.BOOTLOADER.toLowerCase(Locale.getDefault()).contains("nox")
                 || buildHardware.toLowerCase(Locale.getDefault()).contains("nox")
-                || buildProduct.toLowerCase(Locale.getDefault()).contains("nox"));
+                || buildProduct.toLowerCase(Locale.getDefault()).contains("nox"))
+                || (brand.startsWith("generic") && Build.DEVICE.startsWith("generic"));
+    }
 
-        result = result || (brand.startsWith("generic") && Build.DEVICE.startsWith("generic"));
+    private void createWebview(Bundle savedInstanceState) {
+        webView = findViewById(R.id.webView);
+        webView.setWebViewClient(new WebViewClient());
 
-        return result;
+        WebSettings webSettings = webView.getSettings();
+        webSettings.setJavaScriptCanOpenWindowsAutomatically(true);
+        webSettings.setJavaScriptEnabled(true);
+        webSettings.setDomStorageEnabled(true);
+        webSettings.setLoadWithOverviewMode(true);
+        webSettings.setUseWideViewPort(true);
+        webSettings.setDatabaseEnabled(true);
+        webSettings.setSupportZoom(false);
+        webSettings.setAllowFileAccess(true);
+        webSettings.setAllowContentAccess(true);
+
+        CookieManager cookieManager = CookieManager.getInstance();
+        cookieManager.setAcceptCookie(true);
+
+        if (savedInstanceState != null)
+            webView.restoreState(savedInstanceState);
+        else
+            webView.loadUrl(url);
     }
 
     @Override
@@ -77,8 +104,7 @@ public class MainActivity extends AppCompatActivity {
                             }
 
                             mSettings.edit().putString(URL, url).apply();
-
-                            // Добавить webview
+                            createWebview(savedInstanceState);
                         } else {
                             Toast.makeText(MainActivity.this, "Fetch failed",
                                     Toast.LENGTH_SHORT).show();
@@ -86,9 +112,14 @@ public class MainActivity extends AppCompatActivity {
                     });
         } else {
             // Добавить проверку включён ли интернет
+            createWebview(savedInstanceState);
+        }
+    }
 
-            Toast.makeText(MainActivity.this, url,
-                    Toast.LENGTH_SHORT).show();
+    @Override
+    public void onBackPressed() {
+        if (webView.canGoBack()) {
+            webView.goBack();
         }
     }
 }
